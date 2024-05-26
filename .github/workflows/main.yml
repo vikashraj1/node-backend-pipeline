@@ -1,4 +1,4 @@
-name: test nodeapp
+name: test and deploy nodeapp
 
 on:
   push:

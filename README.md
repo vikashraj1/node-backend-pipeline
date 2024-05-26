@@ -1,2 +1,2 @@
 # node-backend-pipeline
-Github actions pipeline to test, containerize and deploy to AWS ECS a node server.
+GitHub Actions pipeline to test, build, and deploy a Node.js application to AWS ECS.

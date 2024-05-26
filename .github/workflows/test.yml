@@ -5,14 +5,6 @@ on:
     branches:
       - test
 
-env:
-  AWS_REGION: us-east-1
-  ECR_REPOSITORY: nodeapp1
-  ECS_SERVICE: git-test-yml-ecs-service
-  ECS_CLUSTER: git-test-yml-ecs-cluster
-  ECS_TASK_DEFINITION: .aws/task-definition.json
-  CONTAINER_NAME: nodeapp1container
-
 
 jobs:
 

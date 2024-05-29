@@ -20,8 +20,7 @@ The workflow is triggered on every push to the `main` branch. It consists of two
 **Accomplishments:**
 - Improved deployment speed and reliability by automating the entire build and release process.
 - Reduced manual intervention and potential errors, leading to more consistent and stable releases.
-<!-- - Leveraged cloud infrastructure for scalable and reliable deployments.
-- Ensured code quality and security by running `npm audit fix` and automated tests. -->
+- Improved Code Quality by Regular testing and security checks helping maintain high code quality and prevent issues from reaching production.
 
 **Technologies Used:**
 - Node.js, GitHub Actions, Docker, Amazon ECR, Amazon ECS, AWS IAM
@@ -55,15 +54,26 @@ The workflow is triggered on every push to the `main` branch. It consists of two
 ## Usage
 
 To use this workflow:
-1. Ensure your code is pushed to the branch specified in the `on push` or `on pull request` section of the workflow.
-2. Enusre your app uses jest for testing or you can change the ```npm test``` command flags for your use case.
+1. Ensure your code is pushed to the `main` branch or the branch specified in the `on push` or `on pull request` section of the workflow.
+2. Ensure your app uses Jest for testing, or adjust the `npm test` command flags for your testing framework.
+3. Create an ECS cluster, service, task definition, and an IAM user with limited permissions in your AWS account.
+4. Add the required secrets and environment variables to your GitHub repository settings.
 
-3. create ecs cluster, serivce and task definatinon adn iam user with limited permission in your aws account and fill and add all the env vars and secrets metioned below in the workflow file.
-   secrets:
-   > note: to get secrets create access key from the im users security credentials section in aws
-   envs:
+### Secrets:
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+  > Note: Create access keys from the IAM user's security credentials section in AWS.
 
-4. The pipeline will automatically run the tests and, upon success, deploy the application to AWS ECS.
+### Environment Variables:
+- `AWS_REGION`: us-east-1
+- `ECR_REPOSITORY`: ecsreponame
+- `ECS_SERVICE`: ecs-service-name
+- `ECS_CLUSTER`: ecs-cluster-name
+- `ECS_TASK_DEFINITION`: .aws/task-definition.json
+- `CONTAINER_NAME`: containername
+
+The pipeline will automatically run the tests and, upon success, deploy the application to AWS ECS.
+
 
 
 
@@ -71,11 +81,10 @@ To use this workflow:
 
 <!-- 
 ---
-limit iam user
-   test needed with custom policy
 
 
-imporve md more
+
+imporve md style
 
 give me Accomplishments section with every imroved suggestion 
 because im not happy with it now

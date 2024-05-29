@@ -62,6 +62,7 @@ To use this workflow:
 ### Secrets:
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
+
   > Note: Create access keys from the IAM user's security credentials section in AWS.
 
 ### Environment Variables:
@@ -75,23 +76,32 @@ To use this workflow:
 The pipeline will automatically run the tests and, upon success, deploy the application to AWS ECS.
 
 
+## Graph
 
 
+```mermaid
+graph LR
+A[Push to Main Branch] --> B[Test Job]
+B --> C{Tests Pass?}
+C --> |Yes| D[Deploy Job]
+C --> |No| E[Abort]
 
+subgraph Test Job
+    B1[Checkout Code]
+    B2[Setup Node.js]
+    B3[Install Dependencies]
+    B4[Run Audit Fix]
+    B5[Run Tests]
+    B1 --> B2 --> B3 --> B4 --> B5
+end
 
-<!-- 
----
-
-
-
-imporve md style
-
-give me Accomplishments section with every imroved suggestion 
-because im not happy with it now
-
-
-
-
-
-https://stackedit.io/app
-diagram like in above -->
+subgraph Deploy Job
+    D1[Checkout Code]
+    D2[Setup Node.js]
+    D3[Configure AWS Credentials]
+    D4[Login to Amazon ECR]
+    D5[Build, Tag, and Push Docker Image]
+    D6[Update ECS Task Definition]
+    D7[Deploy to ECS]
+    D1 --> D2 --> D3 --> D4 --> D5 --> D6 --> D7
+end

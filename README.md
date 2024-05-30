@@ -5,7 +5,7 @@
 [![test and deploy nodeapp](https://github.com/vikashraj1/node-backend-pipeline/actions/workflows/main.yml/badge.svg)](https://github.com/vikashraj1/node-backend-pipeline/actions/workflows/main.yml)
 
 <h3>
-    GitHub Actions CI/CD pipeline for automated testing and deployment of a Node.js app to AWS ECS.
+    CI/CD pipeline for automated testing and deployment of a Node.js app to AWS ECS.
 </h3>
 
 </div>

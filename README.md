@@ -4,9 +4,9 @@
 
 [[ STATUS BADGE WILL GO HERE ]]
 
-<h2>
+<h3>
     GitHub Actions CI/CD pipeline for automated testing and deployment of a Node.js app to AWS ECS.
-</h2>
+</h3>
 
 </div>
 
@@ -66,7 +66,7 @@ To use this workflow:
   > Note: Create access keys from the IAM user's security credentials section in AWS.
 
 ### Environment Variables:
-- `AWS_REGION`: us-east-1
+- `AWS_REGION`: us-example-1
 - `ECR_REPOSITORY`: ecsreponame
 - `ECS_SERVICE`: ecs-service-name
 - `ECS_CLUSTER`: ecs-cluster-name
